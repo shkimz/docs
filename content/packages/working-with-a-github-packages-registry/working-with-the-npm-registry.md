@@ -65,10 +65,6 @@ If your instance has subdomain isolation disabled:
 
 ```shell
 //HOSTNAME/_registry/npm/:_authToken=TOKEN
-```
-
-{% endif %}
-
 To authenticate by logging in to npm, use the `npm login` command, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_v1 %}, and PUBLIC-EMAIL-ADDRESS with your email address.
 
 If you are using npm CLI version 9 or greater and are logging in or out of a private registry using the command line, you should use the `--auth-type=legacy` option to read in your authentication details from prompts instead of using the default login flow through a browser. For more information, see [`npm-login`](https://docs.npmjs.com/cli/v9/commands/npm-login).
@@ -93,9 +89,6 @@ If your instance has subdomain isolation disabled:
 $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_registry/npm/
 > Username: USERNAME
 > Password: TOKEN
-```
-
-{% endif %}
 
 ## Publishing a package
 
@@ -151,13 +144,6 @@ You can use `publishConfig` element in the `package.json` file to specify the re
 1. Edit the `package.json` file for your package and include a `publishConfig` entry.
    {% ifversion ghes %}
    If your instance has subdomain isolation enabled:
-   {% endif %}
-
-   ```shell
-   "publishConfig": {
-     "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm. HOSTNAME/{% endif %}"
-   },
-   ```
 
    {% ifversion ghes %}
    If your instance has subdomain isolation disabled:
